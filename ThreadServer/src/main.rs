@@ -1,4 +1,5 @@
 mod thread_pool;
+mod php_script;
 
 use std::{fs, thread};
 use std::io::{BufRead, BufReader, Write};
@@ -25,7 +26,6 @@ fn main() {
         });
     }
 }
-
 fn handle_connection(mut stream: TcpStream) {
     let buf_read = BufReader::new(&stream);
     let requests = buf_read.lines().next().unwrap().unwrap();
@@ -48,3 +48,5 @@ fn handle_connection(mut stream: TcpStream) {
 
     stream.write_all(response.as_bytes()).unwrap();
 }
+
+
