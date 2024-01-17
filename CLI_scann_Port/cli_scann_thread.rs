@@ -37,7 +37,7 @@ fn main() {
                                              Duration::from_secs(1)) {
                 Ok(_) => println!("Port {} is open", port),
                 Err(_) => {println!("Port {} is closed", port)}
-                // You can add error handling
+                // add error handling
             }
         });
     }
