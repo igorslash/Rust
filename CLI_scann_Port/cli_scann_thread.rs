@@ -28,8 +28,8 @@ fn main() {
 
     for port in 1..=65535 {
         let target = format!("{}:{}", ip, port);
-        let pool = Arc::clone(&pool); // Создаем арку для
-        // использования в замыкании
+        let pool = Arc::clone(&pool); // We create an arch for
+        // use in closure
 
         pool.execute(move || {
             thread::sleep(Duration::from_millis(1000));
