@@ -16,7 +16,7 @@ fn main() {
                 .index(1),
         )
         .get_matches();
-    //пишем ипи адрес
+    //write ip address
     let ip_address = matches
         .value_of("IP_ADDRESS")
         .expect("IP_ADDRESS is required");
@@ -24,7 +24,7 @@ fn main() {
     let ip = IpAddr::from_str(ip_address)
         .expect("Invalid IP address");
 
-    let pool = ThreadPool::new(num_cpus::get()); // Создаем пул потоков
+    let pool = ThreadPool::new(num_cpus::get()); // create threadpool
 
     for port in 1..=65535 {
         let target = format!("{}:{}", ip, port);
@@ -37,12 +37,12 @@ fn main() {
                                              Duration::from_secs(1)) {
                 Ok(_) => println!("Port {} is open", port),
                 Err(_) => {println!("Port {} is closed", port)}
-                // Можно добавить обработку ошибки
+                // You can add error handling
             }
         });
     }
 
-    pool.join(); // Ожидаем завершения всех потоков в пуле
+    pool.join(); // Waiting for all threads in the pool to complet
 }
 //clap = "2.33.0"
 //threadpool = "1.8.1"
