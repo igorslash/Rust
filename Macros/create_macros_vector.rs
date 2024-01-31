@@ -15,3 +15,8 @@ macro_rules! create_vector {
         }
     };
 }
+/* This code represents a macro in Rust that creates a vector and performs
+an append operation on multiple threads.
+The create_vector macro takes several expressions and creates
+a new thread for each of them, which adds an element to the vector.
+ */
