@@ -36,9 +36,10 @@ fn main() {
             match TcpStream::connect_timeout(&target.parse().unwrap(),
                                              Duration::from_secs(1)) {
                 Ok(_) => println!("Port {} is open", port),
-                Err(_) => {println!("Port {} is closed", port)}
-                // add error handling
-            }
+                //error handling
+                Err(e) => println!("Error connecting \
+                 to {}: {}", target, e),
+                }
         });
     }
 
