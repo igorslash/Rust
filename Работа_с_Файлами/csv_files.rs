@@ -1,3 +1,8 @@
+use::csv;
+use serde::{Deserialize, Serialize};
+use std::error::Error;
+
+
 fn main() {
     let write_csv = write_csv(
         &Csv{file: "input.csv".to_string(), delimiter: ','});
